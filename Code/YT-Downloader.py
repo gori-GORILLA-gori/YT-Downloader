@@ -99,10 +99,11 @@ def download_video():
     download_cmd = [
         ytdlp_path,
         "--no-mtime",
-        "-f", "bv*+ba/b",
+        "-f", "bv*+bestaudio[ext=m4a]/b",
         "--merge-output-format", "mp4",
         "-o", os.path.join(outdir, "%(title)s.%(ext)s"),
     ]
+
     if use_cookie:
         download_cmd += ["--cookies", cookie_path]
     download_cmd.append(url)
